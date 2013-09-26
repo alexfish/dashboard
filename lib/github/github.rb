@@ -13,13 +13,18 @@ class GitHub
 
   def issues(org=nil)
     options = {:state => "open", :filter => "all", :page => 0}
+
     page = 0
     count = 0
+    issues = 0
+
     # get a total count of org issues
-    while @client.org_issues(org, options).length > 0 do
+    loop do
       options[:page] = page
       page = page + 1
-      count = count + @client.org_issues(org, options).length
+      issues = @client.org_issues(org, options).length
+      count = count + issues
+      break if issues == 0
     end
     count
   end
