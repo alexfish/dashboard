@@ -9,11 +9,10 @@ class Jenkins
   end
 
   # Returns the tree response array from the jenkins API
-  def tree(branch)
-    response = request("?tree=#{branch}")
+  def jobs
+    response = request("?depth=1")
     # get the JSON key from the tree by removing the branch
-    key = branch.sub /\[.*\]/, ''
-    response = JSON.parse(response.body)["#{key}"]
+    response = JSON.parse(response.body)["jobs"]
 
     response
   end

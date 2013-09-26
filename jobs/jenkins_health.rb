@@ -3,7 +3,7 @@ require './lib/jenkins/jenkins'
 SCHEDULER.every '5s' do
 
   jenkins = Jenkins.new
-  jobs = jenkins.tree("jobs[healthReport[score]]")
+  jobs = jenkins.jobs
 
   total = 0
 
@@ -20,5 +20,5 @@ SCHEDULER.every '5s' do
   # figure out the current health percentage of the full health
   health = total.to_f / full_health.to_f * 100
 
-  send_event('jenkins_health', { value: health })
+  send_event("jenkins_health", { value: health })
 end
