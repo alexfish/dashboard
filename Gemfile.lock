@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.3.5)
     backports (3.3.4)
     coffee-script (2.2.0)
       coffee-script-source
@@ -25,6 +26,8 @@ GEM
     hike (1.2.3)
     multi_json (1.8.0)
     multipart-post (1.2.0)
+    octokit (2.2.0)
+      sawyer (~> 0.5.1)
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
@@ -33,6 +36,9 @@ GEM
     rufus-scheduler (2.0.24)
       tzinfo (>= 0.3.22)
     sass (3.2.10)
+    sawyer (0.5.1)
+      addressable (~> 2.3.5)
+      faraday (~> 0.8, < 0.10)
     simple_oauth (0.2.0)
     sinatra (1.4.3)
       rack (~> 1.4)
@@ -68,4 +74,5 @@ PLATFORMS
 DEPENDENCIES
   dashing
   execjs (= 1.4.0)
+  octokit (~> 2.0)
   twitter

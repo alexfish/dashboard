@@ -6,7 +6,10 @@ configure do
     'url'  => 'http://localhost:8080',
     'view' => 'All'
   }
-
+  set :github, {
+    'token' => ''
+    'org' => ''
+  }
   helpers do
     def protected!
      # Put any authentication code you want in here.
